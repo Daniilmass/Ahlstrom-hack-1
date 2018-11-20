@@ -1,17 +1,10 @@
 from django.shortcuts import render
+from .models import *
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
 
-def penis(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return render(request, 'test.html')
-
-def test(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return render(request, 'test.html')
-
-def index(request):
-    return render(request, 'index.html')
+def news(request):
+    news_list=News.objects.order_by('-dateTime')
+    context = {'news_list': news_list}
+    return render(request, 'index.html', context)
 
