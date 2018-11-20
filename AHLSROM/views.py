@@ -8,3 +8,8 @@ def news(request):
     context = {'news_list': news_list}
     return render(request, 'index.html', context)
 
+def issues(request):
+    issues_list=Issue.objects.order_by('-time_not_working')
+    context = {'issues_list': issues_list}
+    return render(request, 'issues.html', context)
+

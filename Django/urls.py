@@ -20,5 +20,6 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^$', views.news, name='news'),
+    url(r'^issues/', views.issues, name='issue'),
     url(r'^admin/', admin.site.urls),
 ]
