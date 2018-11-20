@@ -1,2 +1,29 @@
-{% load static %}
-<h1>News</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>News</h1>
+    <div class="container w-100 p-3">
+        {% if news_list %}
+          {% for news in news_list %}
+              <div class="row border-bottom">
+                  <div class="col">
+                        <h3>{{ news.topic }}</h3>
+                  </div>
+                  <div class="col-5">
+                      <p color="grey" align="right">{{ news.dateTime }}</p>
+                  </div>
+                  <div class="w-100">
+                  </div>
+                  <div class="col">
+                      <p>{{ news.text }}</p>
+                  </div>
+              </div>
+          {% endfor %}
+        {% else %}
+            <div class="row w-100 p-3">
+                <div align="middle" class="col-5">
+                    <p>No polls are available.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
