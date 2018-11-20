@@ -5,7 +5,7 @@ from django.db import models
 class News(models.Model):
     id = models.AutoField(primary_key=True)
     text = models.CharField(max_length=200)
-    dateTime = models.CharField(max_length=50)
+    dateTime = models.DateTimeField()
     topic = models.CharField(max_length=60)
 
 class SpareParts(models.Model):
