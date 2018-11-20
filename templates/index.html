@@ -5,14 +5,17 @@
         {% if news_list %}
           {% for news in news_list %}
               <div class="row border-bottom">
-                  <div class="col">
-                        <h3>{{ news.topic }}</h3>
+                  <div class="row w-100">
+                        <div class="col">
+                            <h3>{{ news.topic }}</h3>
+                        </div>
                   </div>
-                  <div class="col-5">
-                      <p color="grey" align="right">{{ news.dateTime }}</p>
-                  </div>
-                  <div class="w-100">
-                  </div>
+                  <div class="row w-100">
+                    <div class="col">
+                        <p color="grey" align="left">{{ news.dateTime }}</p>
+                    </div>
+                </div>
+                  
                   <div class="col">
                       <p>{{ news.text }}</p>
                   </div>
