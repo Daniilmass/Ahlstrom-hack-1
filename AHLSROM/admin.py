@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import News, SpareParts, Machines, Warehouse, Issue
 
-
 admin.site.register(SpareParts)
 admin.site.register(Machines)
 admin.site.register(News)
