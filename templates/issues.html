@@ -5,16 +5,29 @@
           {% for issue in issues_list %}
               <div class="row border-bottom">
                   <div class="col">
-                        <h3>{{ issue.injury }}</h3>
+                      {% if issue.injury == True %}
+                          <h3>There was injury</h3>
+                      {% else %}
+                          <h3>There was not injury</h3>
+                      {% endif %}
+
                   </div>
                   <div class="col-5">
-                      <p color="grey" align="right">{{ issue.fixed }}</p>
+                      {% if issue.fixed == True %}
+                          <h3>Fixed</h3>
+                      {% else %}
+                          <h3>Not yet fixed</h3>
+                      {% endif %}
                   </div>
                   <div class="w-100">
                   </div>
                   <div class="col">
                         {% for machine in issue.machine_id.all %}
-                            <p>{{ machine.name }}</p>
+                            {% if issues_list %}
+                                <p>{{ machine.name }}</p>
+                            {% else %}
+                                <p>{{ machine.name }}</p>
+                            {% endif %}
                         {% endfor %}
                         {% for parts in issue.parts_id.all %}
                             <p>{{ parts.name }}</p>
