@@ -27,6 +27,15 @@ h3 {
     color: maroon;
 }
 .button_right_fix {
-    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 80%;
+    color: maroon;
+    text-align: center;
+
     /*content-color: magenta;*/
+}
+
+.button1 {
+    border-radius: 30%;
+
 }
