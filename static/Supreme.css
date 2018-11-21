@@ -44,7 +44,10 @@ h3 {
 }
 
 .table {
-    font-size: xx-small ;
+    border: 1px solid black;
+    table-layout: fixed;
+    border-collapse: collapse;
+    /*font-size: xx-small ;*/
     text-space: nowrap;
 }
 
