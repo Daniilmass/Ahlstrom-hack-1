@@ -25,6 +25,7 @@ h3 {
     text-align: left;
     font-family: "Kino MT";
     color: maroon;
+
 }
 .button_right_fix {
     margin-bottom: 20px;
@@ -41,3 +42,9 @@ h3 {
     padding: 10px;
     background-color: rgba(255, 71, 48, 0.87);
 }
+
+.table {
+    font-size: xx-small ;
+    text-space: nowrap;
+}
+
