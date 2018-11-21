@@ -26,20 +26,23 @@ def newsAdd(request):
 
 
 class AddNews(TemplateView):
-
     def get(self, request):
         form = forms.NewsForm()
         return render(request, "add_news.html", {"form": form})
 
 
 def parts(request):
-    return render(request, "add_news.html")
+    parts_list = SpareParts.objects.order_by('-name')
+    context = {'parts_list': parts_list}
+    return render(request, "parts.html",context)
 
 def machine(request):
     return render(request, "add_news.html")
 
-def parts_edit(request):
-    return render(request, "add_news.html")
+def parts_edit(request,parts_id):
+    parts_list = SpareParts.objects.get(id=parts_id)
+    context = {'parts': parts_list}
+    return render(request, "parts_edit.html", context)
 
 def machine_edit(request):
     return render(request, "add_news.html")

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Spare Parts</h1>
+    {% if parts_list %}
+        <table class="table fixed_header table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Part Name</th>
+                    <th scope="col">Parts at Warehouse</th>
+                    <th scope="col">Previous Usage</th>
+                </tr>
+                </thead>
+                <tbody class="data_table">
+                {% for part in parts_list %}
+                    <tr id="{{ part.id }}">
+                        <td>{{ part.name }}</td>
+                        <td>{{ part.name }}</td>
+                        <td>{{ part.counter }}</td>
+                        <td>{{ part.date_usage }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+    {% else %}
+        <div class="row w-100 p-3">
+            <div align="middle" class="col-5">
+                <p>No issues are available.</p>
+            </div>
+        </div>
+    {% endif %}
+        <div class="row justify-content-md-center button_right_fix fixed-bottom">
+
+        <button type="button" align="center" class= "btn button1 btn-lg btn-outline-danger"><img width="50px" height="50px" src="../static/rwanda-plus-icon.png"></button>
+
+    </div>
+{% endblock %}
