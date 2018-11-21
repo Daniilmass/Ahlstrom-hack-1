@@ -5,7 +5,7 @@ import datetime
 
 def issues_edit(request,issue_id):
     issue = Issue.objects.get(id=int(issue_id))
-    context = {'news_list': issue}
+    context = {'issue_data': issue}
     return render(request, 'issue_edit.html', context)
 
 def news(request):
@@ -20,6 +20,5 @@ def issues(request):
     return render(request, 'issues.html', context)
 
 def newsAdd(request):
-
         return render(request, "add_news.html")
 
