@@ -14,7 +14,6 @@ class SpareParts(models.Model):
     name = models.CharField(max_length=60)
     date_usage = models.DateTimeField(blank=True,null=True)
 
-
 class Machines(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=60)

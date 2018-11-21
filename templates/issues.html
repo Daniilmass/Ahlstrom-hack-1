@@ -10,6 +10,7 @@
                       <th scope="col">Fix state</th>
                       <th scope="col">Time (h)</th>
                       <th scope="col">Machines</th>
+                      <th scope="col">Used Parts</th>
                     </tr>
                 </thead>
                 {% for issue in issues_list %}
@@ -22,6 +23,11 @@
                             <td>
                                 {% for machines in issue.machine_id.all %}
                                     <p>{{ machines.name }}</p>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for parts in issue.parts_id.all %}
+                                    <p>{{ parts.name }}</p>
                                 {% endfor %}
                             </td>
                         </tr>
