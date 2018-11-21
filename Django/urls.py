@@ -20,7 +20,8 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^$', views.news, name='news'),
-    url(r'^issues/', views.issues, name='issue'),
+    url(r'^issues/$', views.issues, name='issue'),
+    url(r'^issues/edit/(?P<issue_id>\w{1,50})$', views.issues_edit, name='issue_edit'),
     url(r'^admin/', admin.site.urls),
     url(r'^news/add/', views.newsAdd, name='news/add/' )
 ]

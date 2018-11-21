@@ -3,6 +3,11 @@ from .models import *
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
 
+def issues_edit(request,issue_id):
+    issue = Issue.objects.get(id=int(issue_id))
+    context = {'news_list': issue}
+    return render(request, 'issue_edit.html', context)
+
 def news(request):
     news_list=News.objects.order_by('-dateTime')
     context = {'news_list': news_list}
