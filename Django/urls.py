@@ -22,6 +22,7 @@ from AHLSROM.views import AddNews
 
 urlpatterns = [
     url(r'^$', views.news, name='news'),
+    url(r'^news/$', views.news, name='news'),
     url(r'^machines/$', views.machine, name='machine'),
     url(r'^issues/$', views.issues, name='issue'),
     url(r'^issues/add/$', views.issues_add, name='issue_add'),
