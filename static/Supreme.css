@@ -7,3 +7,11 @@ h1 {
     font-family: Arial, Helvetica, SansSerif;
     color: antiquewhite;
 }
+
+h3 {
+    /*margin-left: 0%;*/
+    /*margin-right: 50%;*/
+    text-align: left;
+    font-family: "Kino MT";
+    color: maroon;
+}
