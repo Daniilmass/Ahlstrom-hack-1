@@ -47,7 +47,7 @@ h3 {
     border: 1px solid black;
     table-layout: fixed;
     border-collapse: collapse;
-    /*font-size: xx-small ;*/
+    font-size: x-small ;
     text-space: nowrap;
 }
 
