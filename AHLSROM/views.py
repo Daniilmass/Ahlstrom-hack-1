@@ -2,6 +2,11 @@ from django.shortcuts import render
 from .models import *
 from . import forms
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+import datetime
+from django.utils import timezone
+
+import json
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
 
@@ -43,6 +48,26 @@ def parts_edit(request,parts_id):
     parts_list = SpareParts.objects.get(id=parts_id)
     context = {'parts': parts_list}
     return render(request, "parts_edit.html", context)
+
+@csrf_exempt
+def issues_add(request):
+    if request.method == 'POST':
+        issue_data = json.loads(request.body.decode('utf-8'))
+        mach=[Machines.objects.get(name=i) for i in issue_data['machines']]
+        parts=[SpareParts.objects.get(name=i) for i in issue_data['parts']]
+        now = now = timezone.now()
+        add_issue = Issue(injury=issue_data['injury'],fixed=issue_data['fixed'],time_not_working=now)
+        add_issue.save()
+        for i in mach:
+            add_issue.machine_id.add(i)
+        for i in parts:
+            add_issue.parts_id.add(i)
+        return HttpResponse(status=201)
+    else:
+        parts_list = SpareParts.objects.all()
+        machine_list = Machines.objects.all()
+        context = {'parts': parts_list, 'machine':machine_list}
+        return render(request, "issue_add.html", context)
 
 def machine_edit(request):
     return render(request, "add_news.html")

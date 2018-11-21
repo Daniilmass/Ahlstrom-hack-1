@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', views.news, name='news'),
     url(r'^machines/$', views.machine, name='machine'),
     url(r'^issues/$', views.issues, name='issue'),
+    url(r'^issues/add/$', views.issues_add, name='issue_add'),
     url(r'^spare_parts/$', views.parts, name='parts'),
     url(r'^issues/edit/(?P<issue_id>\w{1,50})$', views.issues_edit, name='issue_edit'),
     url(r'^machines/edit/(?P<machine_id>\w{1,50})$', views.machine_edit, name='machine_edit'),
