@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from . import forms
+from django.views.generic import TemplateView
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
 
@@ -21,6 +23,13 @@ def issues(request):
 
 def newsAdd(request):
         return render(request, "add_news.html")
+
+
+class AddNews(TemplateView):
+
+    def get(self, request):
+        form = forms.NewsForm()
+        return render(request, "add_news.html", {"form": form})
 
 
 def parts(request):

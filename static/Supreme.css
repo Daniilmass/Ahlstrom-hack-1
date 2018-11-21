@@ -12,6 +12,14 @@ body {
     padding-left: 0px !important;
 }
 
+#id_newNewsTitle {
+    width: 100%;
+}
+
+#id_newNewsText {
+    width: 100%;
+}
+
 h1 {
     text-align: center;
     margin-left: -50%;
