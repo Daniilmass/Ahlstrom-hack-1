@@ -12,12 +12,14 @@ class SpareParts(models.Model):
     id = models.AutoField(primary_key=True)
     counter = models.IntegerField()
     name = models.CharField(max_length=60)
+    date_usage = models.DateTimeField(blank=True)
 
 
 class Machines(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=60)
     parts = models.ManyToManyField(SpareParts)
+    previous_fix_time = models.DateTimeField(blank=True)
 
 class Warehouse(models.Model):
     id = models.AutoField(primary_key=True)
@@ -30,4 +32,4 @@ class Issue(models.Model):
     time_not_working = models.DateTimeField()
     injury = models.BooleanField(default=False)
     fixed = models.BooleanField(default=False)
-    duration_unfix=models.IntegerField(null=True,blank=True)
+    duration_unfix=models.IntegerField(blank=True)
