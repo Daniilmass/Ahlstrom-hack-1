@@ -20,8 +20,12 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^$', views.news, name='news'),
+    url(r'^machines/$', views.machine, name='machine'),
     url(r'^issues/$', views.issues, name='issue'),
+    url(r'^spare_parts/$', views.parts, name='parts'),
     url(r'^issues/edit/(?P<issue_id>\w{1,50})$', views.issues_edit, name='issue_edit'),
+    url(r'^machines/edit/(?P<machine_id>\w{1,50})$', views.machine_edit, name='machine_edit'),
+    url(r'^spare_parts/edit/(?P<parts_id>\w{1,50})$', views.parts_edit, name='parts_edit'),
     url(r'^admin/', admin.site.urls),
     url(r'^news/add/', views.newsAdd, name='news/add/' )
 ]
