@@ -14,3 +14,7 @@ def issues(request):
     context = {'issues_list': issues_list}
     return render(request, 'issues.html', context)
 
+def newsAdd(request):
+
+        return render(request, "add_news.html")
+
