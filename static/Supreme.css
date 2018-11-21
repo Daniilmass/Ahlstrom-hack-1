@@ -29,13 +29,15 @@ h3 {
 .button_right_fix {
     margin-bottom: 20px;
     margin-left: 80%;
-    color: maroon;
+
     text-align: center;
 
     /*content-color: magenta;*/
 }
 
 .button1 {
-    border-radius: 30%;
+    border-radius: 50%;
 
+    padding: 10px;
+    background-color: rgba(255, 71, 48, 0.87);
 }
