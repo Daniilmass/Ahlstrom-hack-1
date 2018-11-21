@@ -22,3 +22,18 @@ def issues(request):
 def newsAdd(request):
         return render(request, "add_news.html")
 
+
+def parts(request):
+    return render(request, "add_news.html")
+
+def machine(request):
+    return render(request, "add_news.html")
+
+def parts_edit(request):
+    return render(request, "add_news.html")
+
+def machine_edit(request):
+    return render(request, "add_news.html")
+
+
+
