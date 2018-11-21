@@ -14,6 +14,7 @@ body {
 
 h1 {
     text-align: center;
+    margin-left: -50%;
     font-family: Arial, Helvetica, SansSerif;
     color: antiquewhite;
 }
@@ -24,4 +25,8 @@ h3 {
     text-align: left;
     font-family: "Kino MT";
     color: maroon;
+}
+.button_right_fix {
+    margin-top: 50px;
+    /*content-color: magenta;*/
 }
