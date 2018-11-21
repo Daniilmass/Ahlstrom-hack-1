@@ -28,7 +28,7 @@ class Issue(models.Model):
     id = models.AutoField(primary_key=True)
     machine_id = models.ManyToManyField(Machines)
     parts_id = models.ManyToManyField(SpareParts)
-    time_not_working = models.DateTimeField()
+    time_not_working = models.DateTimeField(null=True,blank=True)
     injury = models.BooleanField(default=False)
     fixed = models.BooleanField(default=False)
     duration_unfix=models.IntegerField(null=True,blank=True)

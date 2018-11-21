@@ -17,8 +17,32 @@
                     <tbody>
                         <tr>
                             <td>{{ issue.time_not_working }}</td>
-                            <td>{{ issue.injury }}</td>
-                            <td>{{ issue.fixed }}</td>
+                            <td>
+                                {% if issue.injury == True %}
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
+                                        <label class="custom-control-label" for="customCheckDisabled"> Injury happened</label>
+                                    </div>
+                                {% else %}
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
+                                        <label class="custom-control-label" for="customCheckDisabled"> No injury happened</label>
+                                    </div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if issue.fixed == True %}
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
+                                        <label class="custom-control-label" for="customCheckDisabled"> Fixed</label>
+                                    </div>
+                                {% else %}
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
+                                        <label class="custom-control-label" for="customCheckDisabled"> Not fixed</label>
+                                    </div>
+                                {% endif %}
+                            </td>
                             <td>{{ issue.duration_unfix }}</td>
                             <td>
                                 {% for machines in issue.machine_id.all %}
