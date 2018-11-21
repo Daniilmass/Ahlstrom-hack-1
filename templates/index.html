@@ -3,24 +3,23 @@
     <h1>News</h1>
     <div class="container w-100 p-3">
         {% if news_list %}
-          {% for news in news_list %}
-              <div class="row border-bottom">
-                  <div class="row w-100">
-                        <div class="col">
-                            <h3>{{ news.topic }}</h3>
+            {% for news in news_list %}
+                <div class="row border-bottom" style="margin-bottom: 5px;">
+                    <div class="flex-row w-100">
+                        <div class="col" id="col_news" align="left">
+                            <h3 style="margin-bottom: 0px;">{{ news.topic }}</h3>
                         </div>
-                  </div>
-                  <div class="row w-100">
-                    <div class="col">
-                        <p color="grey" align="left">{{ news.dateTime }}</p>
+                    </div>
+                    <div class="flex-row w-100">
+                        <div class="col" id="col_news_time" align="left">
+                            <p color="grey" style="margin-bottom: 5px;">{{ news.dateTime }}</p>
+                        </div>
+                    </div>
+                    <div class="flex-row w-100">
+                        <p>{{ news.text }}</p>
                     </div>
                 </div>
-                  
-                  <div class="col">
-                      <p>{{ news.text }}</p>
-                  </div>
-              </div>
-          {% endfor %}
+            {% endfor %}
         {% else %}
             <div class="row w-100 p-3">
                 <div align="middle" class="col-5">
@@ -31,7 +30,7 @@
     </div>
     <div class="row justify-content-md-center fixed-bottom">
         <div class="col"></div>
-        <button type="button" align="center" class= "col-6 btn btn-lg btn-primary">Add news</button>
+        <button type="button" align="center" class="col-6 btn btn-lg btn-primary">Add news</button>
         <div class="col"></div>
     </div>
 {% endblock %}
