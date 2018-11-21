@@ -30,3 +30,4 @@ class Issue(models.Model):
     time_not_working = models.DateTimeField()
     injury = models.BooleanField(default=False)
     fixed = models.BooleanField(default=False)
+    duration_unfix=models.IntegerField(null=True,blank=True)

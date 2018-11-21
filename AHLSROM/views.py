@@ -8,6 +8,7 @@ def news(request):
     context = {'news_list': news_list}
     return render(request, 'index.html', context)
 
+#TODO: Сдлать обработку duration fix
 def issues(request):
     issues_list=Issue.objects.order_by('-time_not_working')
     context = {'issues_list': issues_list}
