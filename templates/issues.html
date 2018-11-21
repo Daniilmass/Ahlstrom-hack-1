@@ -2,20 +2,18 @@
 {% block content %}
     <h1>Issues</h1>
         {% if issues_list %}
-            <table class="issue_table table fixed_header table-striped">
+            <table class="table fixed_header table-striped">
                 <thead>
                     <tr>
-
-                          <th scope="col">Breakdown time</th>
+                          <th scope="col">Issue time</th>
                           <th scope="col">Injury</th>
                           <th scope="col">Fix state</th>
                           <th scope="col">Time (h)</th>
                           <th scope="col">Machines</th>
                           <th scope="col">Used Parts</th>
-
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="issue_table">
                 {% for issue in issues_list %}
 
                         <tr id="{{ issue.id }}">
@@ -24,12 +22,12 @@
                                 {% if issue.injury == True %}
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
-                                        <label class="custom-control-label" for="customCheckDisabled"> Injury happened</label>
+                                        <label class="custom-control-label" for="customCheckDisabled"></label>
                                     </div>
                                 {% else %}
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
-                                        <label class="custom-control-label" for="customCheckDisabled"> No injury happened</label>
+                                        <label class="custom-control-label" for="customCheckDisabled"></label>
                                     </div>
                                 {% endif %}
                             </td>
@@ -37,12 +35,12 @@
                                 {% if issue.fixed == True %}
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
-                                        <label class="custom-control-label" for="customCheckDisabled"> Fixed</label>
+                                        <label class="custom-control-label" for="customCheckDisabled"></label>
                                     </div>
                                 {% else %}
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
-                                        <label class="custom-control-label" for="customCheckDisabled"> Not fixed</label>
+                                        <label class="custom-control-label" for="customCheckDisabled"></label>
                                     </div>
                                 {% endif %}
                             </td>
