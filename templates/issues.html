@@ -1,40 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Issues</h1>
-    {% if issues_list %}
-          {% for issue in issues_list %}
-              <div class="row border-bottom">
-                  <div class="col">
-                      {% if issue.injury == True %}
-                          <h3>There was injury</h3>
-                      {% else %}
-                          <h3>There was not injury</h3>
-                      {% endif %}
-
-                  </div>
-                  <div class="col-5">
-                      {% if issue.fixed == True %}
-                          <h3>Fixed</h3>
-                      {% else %}
-                          <h3>Not yet fixed</h3>
-                      {% endif %}
-                  </div>
-                  <div class="w-100">
-                  </div>
-                  <div class="col">
-                        {% for machine in issue.machine_id.all %}
-                            {% if issues_list %}
-                                <p>{{ machine.name }}</p>
-                            {% else %}
-                                <p>{{ machine.name }}</p>
-                            {% endif %}
-                        {% endfor %}
-                        {% for parts in issue.parts_id.all %}
-                            <p>{{ parts.name }}</p>
-                        {% endfor %}
-                  </div>
-              </div>
-          {% endfor %}
+        {% if issues_list %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col">Breakdown time</th>
+                      <th scope="col">Injury</th>
+                      <th scope="col">Fix state</th>
+                      <th scope="col">Time (h)</th>
+                      <th scope="col">Machines</th>
+                    </tr>
+                </thead>
+                {% for issue in issues_list %}
+                    <tbody>
+                        <tr>
+                            <td>{{ issue.time_not_working }}</td>
+                            <td>{{ issue.injury }}</td>
+                            <td>{{ issue.fixed }}</td>
+                            <td>{{ issue.duration_unfix }}</td>
+                            <td>
+                                {% for machines in issue.machine_id.all %}
+                                    <p>{{ machines.name }}</p>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
         {% else %}
             <div class="row w-100 p-3">
                 <div align="middle" class="col-5">
