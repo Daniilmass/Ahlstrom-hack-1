@@ -21,7 +21,13 @@
                                     <p>{{ part.name }}</p>
                                 {% endfor %}
                             </td>
-                            <td align="left" style="vertical-align: middle">{{ machine.previous_fix_time }}</td>
+                            <td align="left" style="vertical-align: middle">
+                                {% if machine.previous_fix_time != None %}
+                                    {{ machine.previous_fix_time }}
+                                    {% else %}
+                                    <p>Not set</p>
+                                {% endif %}
+                            </td>
                         </tr>
                     {% endfor %}
                  </tbody>
