@@ -1,5 +1,5 @@
 body {
-    background-color: lightcoral;
+    background-color: #f1f1f1;
     /*background-image: url("GreyPolygons_1400x900.jpg");*/
 }
 
@@ -73,6 +73,27 @@ h3 {
     font-size: xx-small ;
     text-space: nowrap;
 
+}
+
+.PageTitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 55px;
+}
+
+.NewsTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.NewsDate {
+    font-size: 13px;
+    color: #6e6e6e;
+}
+
+.NewsText {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
 
 
