@@ -15,7 +15,8 @@ $(document).ready(function() {
           type: "POST",
           data: JSON.stringify( {'injury':injury,
                  'fixed': fixed,
-                 'machines':[select_machine]}),
+                 'machines':[select_machine],
+                 'parts':["KLD-210"]}),
           dataType: 'json'
         });
     });
