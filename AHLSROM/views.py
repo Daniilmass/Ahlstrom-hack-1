@@ -32,6 +32,11 @@ def issues(request):
 def newsAdd(request):
         return render(request, "add_news.html")
 
+def statistic(request):
+    parts = SpareParts.objects.order_by('-name')
+    machines_list = Machines.objects.order_by('-name')
+    context = {'parts': parts}
+    return render(request, "statistic.html", context)
 
 class AddNews(TemplateView):
     def get(self, request):
