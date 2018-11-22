@@ -68,7 +68,6 @@ h3 {
 .table {
     height: 200px;
     background-color: #e0e0e0;
-    border: 1px solid black;
     table-layout: auto;
     /*border-collapse: collapse;*/
     font-size: small ;
@@ -101,6 +100,11 @@ h3 {
     overflow-y: auto;
     overflow-x: auto;
 
+}
+
+.table_head {
+    vertical-align: middle;
+    white-space: nowrap
 }
 
 

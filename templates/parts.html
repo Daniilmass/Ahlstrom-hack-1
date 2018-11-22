@@ -2,28 +2,28 @@
 {% block content %}
     <h1 class="PageTitle">Spare Parts</h1>
     {% if parts_list %}
-
-            <table class="table fixed_header table-striped">
+        <div class="scrollMe">
+            <table class="table fixed_header table-striped" style="font-family: 'Roboto', sans-serif;">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Part Name</th>
-                        <th scope="col">Parts at Warehouse</th>
-                        <th scope="col">Previous Usage</th>
+                    <tr style="font-size: 18px; align: center; vertical-align: middle; background-color:#9b9b9b;">
+                        <!--<th scope="col">#</th>-->
+                        <th class="table_head" scope="col">Part Name</th>
+                        <th class="table_head" scope="col">Parts at Warehouse</th>
+                        <th class="table_head" scope="col">Previous Usage</th>
                     </tr>
                     </thead>
                     <tbody class="data_table">
                     {% for part in parts_list %}
                         <tr id="{{ part.id }}">
-                            <td>{{ part.id }}</td>
-                            <td>{{ part.name }}</td>
-                            <td>{{ part.counter }}</td>
+                            <!--<td>{{ part.id }}</td>-->
+                            <td align="left" style="vertical-align: middle;">{{ part.name }}</td>
+                            <td align="center" style="vertical-align: middle;">{{ part.counter }}</td>
                             <td>{{ part.date_usage }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
             </table>
-
+        </div>
     {% else %}
         <div class="row w-100 p-3">
             <div align="middle" class="col-5">
