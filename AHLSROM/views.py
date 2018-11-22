@@ -49,8 +49,11 @@ def parts(request):
     context = {'parts_list': parts_list}
     return render(request, "parts.html",context)
 
-def machine(request):
-    return render(request, "add_news.html")
+def machines(request):
+    machines_list = Machines.objects.order_by('-name')
+    context = {'machines_list': machines_list}
+    return render(request, 'machines.html', context)
+
 
 def parts_edit(request,parts_id):
     parts_list = SpareParts.objects.get(id=parts_id)

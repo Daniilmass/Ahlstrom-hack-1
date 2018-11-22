@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="PageTitle">Machines</h1>
+        {% if machines_list %}
+            <div class="scrollMe">
+            <table class="table fixed_header table-striped " style="font-family: 'Roboto', sans-serif;">
+                <thead>
+                    <tr style="font-size: 18px; align: center; vertical-align: middle; background-color:#9b9b9b;"  >
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Name</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Parts</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Last fix</th>
+                    </tr>
+                </thead>
+                <tbody class="data_table">
+                {% for machine in machines_list %}
+
+                        <tr id="{{ machine.id }}">
+                            <td  style="vertical-align: middle">{{ machine.name }}</td>
+                            <td  style="vertical-align: middle;">
+                                {% for part in machine.parts.all %}
+                                    <p>{{ part.name }}</p>
+                                {% endfor %}
+                            </td>
+                            <td align="left" style="vertical-align: middle">{{ machine.previous_fix_time }}</td>
+                        </tr>
+                    {% endfor %}
+                 </tbody>
+            </table>
+            </div>
+        {% else %}
+            <div class="row w-100 p-3">
+                <div align="middle" class="col-5">
+                    <p>No Machines are available.</p>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row justify-content-md-center button_right_fix fixed-bottom">
+
+        <button type="button" id="add_button" class="btn btn-success btn-circle">
+        <i class="fas fa-plus" style="font-size: x-large; padding-top: 3px;padding-bottom: 3px;"></i>
+    </button>
+
+    </div>
+{% endblock %}
