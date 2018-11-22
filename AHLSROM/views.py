@@ -5,6 +5,9 @@ from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 from django.utils import timezone
+from django.http import JsonResponse
+from django.core.serializers import serialize
+from django.core.serializers.json import DjangoJSONEncoder
 
 import json
 from django.http import HttpResponse, HttpResponseNotFound
@@ -34,6 +37,11 @@ class AddNews(TemplateView):
     def get(self, request):
         form = forms.NewsForm()
         return render(request, "add_news.html", {"form": form})
+
+class AddSpareParts(TemplateView):
+    def get(self, request):
+        form = forms.Spare()
+        return render(request, "add_spare_parts.html", {"form": form})
 
 
 def parts(request):
@@ -72,5 +80,8 @@ def issues_add(request):
 def machine_edit(request):
     return render(request, "add_news.html")
 
-
+def test(request):
+    news = News.objects.all().values()  # or simply .values() to get all fields
+    users_list = list(news)  # important: convert the QuerySet to a list object
+    return JsonResponse(users_list, safe=False)
 

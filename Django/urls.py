@@ -31,5 +31,8 @@ urlpatterns = [
     url(r'^machines/edit/(?P<machine_id>\w{1,50})$', views.machine_edit, name='machine_edit'),
     url(r'^spare_parts/edit/(?P<parts_id>\w{1,50})$', views.parts_edit, name='parts_edit'),
     url(r'^admin/', admin.site.urls),
-    url(r'^news/add/', AddNews.as_view(), name='news/add/')
+    url(r'^news/add/', AddNews.as_view(), name='news/add/'),
+    #url(r'^spare_parts/add/', AddSpareParts.as_view(), name='spare_parts/add/'),
+
+    url(r'^test/', views.test, name='test')
 ]
