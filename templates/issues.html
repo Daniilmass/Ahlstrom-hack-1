@@ -3,55 +3,49 @@
     <h1>Issues</h1>
         {% if issues_list %}
             <div class="scrollMe">
-            <table class="table fixed_header table-striped ">
+            <table class="table fixed_header table-striped " style="font-family: 'Roboto', sans-serif;">
                 <thead>
-                    <tr>
-                          <th scope="col">Issue time</th>
-                          <th scope="col">Injury</th>
-                          <th scope="col">Fix state</th>
-                          <th scope="col">Time (h)</th>
-                          <th scope="col">Machines</th>
-                          <th scope="col">Used Parts</th>
+                    <tr style="font-size: 18px; align: center; vertical-align: middle; background-color:#9b9b9b;"  >
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Issue time</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Injury</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Fix state</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Time (h)</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Machines</th>
+                          <th scope="col" style="vertical-align: middle; white-space: nowrap">Used Parts</th>
                     </tr>
                 </thead>
                 <tbody class="data_table">
                 {% for issue in issues_list %}
 
                         <tr id="{{ issue.id }}">
-                            <td>{{ issue.time_not_working }}</td>
-                            <td>
+                            <td style="vertical-align: middle">{{ issue.time_not_working }}</td>
+                            <td align="center" style="vertical-align: middle;">
                                 {% if issue.injury == True %}
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
-                                        <label class="custom-control-label" for="customCheckDisabled"></label>
-                                    </div>
+                                   <i class="fas fa-circle" style="color: red; font-size: medium"></i>
                                 {% else %}
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
-                                        <label class="custom-control-label" for="customCheckDisabled"></label>
-                                    </div>
+                                    <i class="far fa-circle" style="color: red; font-size: medium"></i>
                                 {% endif %}
                             </td>
-                            <td>
+                            <td align="center" style="vertical-align: middle;">
                                 {% if issue.fixed == True %}
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled checked>
-                                        <label class="custom-control-label" for="customCheckDisabled"></label>
-                                    </div>
+                                    <i class="fas fa-circle" style="color: green; font-size: medium"></i>
                                 {% else %}
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
-                                        <label class="custom-control-label" for="customCheckDisabled"></label>
-                                    </div>
+                                    <i class="far fa-circle" style="color: green; font-size: medium"></i>
                                 {% endif %}
                             </td>
-                            <td>{{ issue.duration_unfix }}</td>
-                            <td>
+                            <td align="center" style="vertical-align: middle;">
+                                {% if issue.duration_unfix == None %}
+                                <p style="white-space: nowrap">Not fixed yet</p>
+                                {% else %}
+                                {{ issue.duration_unfix }}
+                                {% endif %}
+                            </td>
+                            <td align="left" style="vertical-align: middle;">
                                 {% for machines in issue.machine_id.all %}
                                     <p>{{ machines.name }}</p>
                                 {% endfor %}
                             </td>
-                            <td>
+                            <td align="left" style="vertical-align: middle;">
                                 {% for parts in issue.parts_id.all %}
                                     <p>{{ parts.name }}</p>
                                 {% endfor %}
@@ -70,7 +64,9 @@
         {% endif %}
         <div class="row justify-content-md-center button_right_fix fixed-bottom">
 
-        <button id="add_button" type="button" align="center" class= "btn button1 btn-lg btn-outline-danger"><img width="50px" height="50px" src="../static/rwanda-plus-icon.png"></button>
+        <button type="button" id="add_button" class="btn btn-success btn-circle">
+        <i class="fas fa-plus" style="font-size: x-large; padding-top: 3px;padding-bottom: 3px;"></i>
+    </button>
 
     </div>
 {% endblock %}
