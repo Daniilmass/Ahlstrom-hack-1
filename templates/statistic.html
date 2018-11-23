@@ -2,7 +2,7 @@
 {% block content %}
     <h1 class="PageTitle">Statistic</h1>
     <canvas id="myChart" width="400" height="400"></canvas>
-    <canvas style="margin-top:10%" id="NNChart" width="400" height="400"></canvas>
+    <canvas style="margin-top:10%;margin-left:-10%;" id="NNChart" width="400" height="400"></canvas>
     <script>
     function getRandomColor() {
         return 'rgba('+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256);
@@ -46,16 +46,17 @@ background.push(testing+',1)');
     }
 });
 
-var gardic=[];
-var data=[];
+var gardic=['2018-11-22 00:00:00','2018-11-22 06:00:00','2018-11-22 12:00:00','2018-11-22 18:00:00','2018-11-23 00:00:00','2018-11-23 06:00:00','2018-11-23 12:00:00',];
+var data=[62,8,42,72,13,14,8,12,17,24,36,94,74,21];
 var color=[];
 var background=[];
-{% for issue in issues %}
-gardic.push("{{ issue.time_not_working }}");
-var testing=getRandomColor()
-color.push(testing+',0.2)');
-background.push(testing+',1)');
-{% endfor %}
+{#gardic.push("{{ issue.time_not_working }}");#}
+for (i=0; i<= gardic.length;i++) {
+    var testing = getRandomColor()
+    color.push(testing + ',0.2)');
+    background.push(testing + ',1)');
+}
+console.log(color)
         var NNChart = new Chart(ctxNN, {
     type: 'bar',
     data: {
