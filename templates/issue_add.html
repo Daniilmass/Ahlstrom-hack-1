@@ -24,7 +24,7 @@
         </select>
       </div>
         <div>
-            <select style="margin-bottom:2%;" class="form-control" multiple>
+            <select style="margin-bottom:2%;" class="form-control" id="select_parts" multiple>
                 {% for part in parts %}
                   <option value="{{ part.id }}">{{ part.name }}</option>
                 {% endfor %}
