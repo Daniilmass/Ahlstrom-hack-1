@@ -23,6 +23,13 @@
               {% endfor %}
         </select>
       </div>
+        <div>
+            <select style="margin-bottom:2%;" class="form-control" multiple>
+                {% for part in parts %}
+                  <option value="{{ part.id }}">{{ part.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </form>
     <button type="button" id="send_issue" class="btn btn-primary">Send</button>
     <div style="margin-top:3%;display: none" id="issue_added" class="alert alert-success" role="alert">
