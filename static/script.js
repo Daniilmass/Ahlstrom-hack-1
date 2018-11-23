@@ -10,6 +10,7 @@ $(document).ready(function() {
         var fixed = $('#fixed').is(':checked');
         var select_machine = $('#select_machine').val();
         console.log(injury,fixed,select_machine)
+        console.log(location.host+'issues/')
         $.ajax({
           url: location.href,
           type: "POST",
@@ -19,6 +20,7 @@ $(document).ready(function() {
                  'parts':["KLD-210"]}),
           dataType: 'json'
         });
+        $('#issue_added').show()
     });
 });
 
