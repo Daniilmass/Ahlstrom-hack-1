@@ -34,8 +34,8 @@ def newsAdd(request):
 
 def statistic(request):
     parts = SpareParts.objects.order_by('-name')
-    machines_list = Machines.objects.order_by('-name')
-    context = {'parts': parts}
+    issue = Issue.objects.order_by('-id')
+    context = {'parts': parts,'issues':issue}
     return render(request, "statistic.html", context)
 
 class AddNews(TemplateView):
